@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EvoForge - 진화 시뮬레이션 게임</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app">
+        <header class="header">
+            <h1>🧬 EvoForge</h1>
+            <p>박테리아와 바이러스의 진화 경쟁 시뮬레이션</p>
+        </header>
+        
+        <div class="main-container">
+            <div class="control-panel">
+                <div class="stats-panel">
+                    <h3>📊 통계</h3>
+                    <div class="stat-item">
+                        <span>박테리아:</span> <span id="bacteria-count">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span>바이러스:</span> <span id="virus-count">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span>숙주:</span> <span id="host-count">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span>틱:</span> <span id="tick-count">0</span>
+                    </div>
+                </div>
+                
+                <div class="agent-panel">
+                    <h3>🤖 AI 에이전트</h3>
+                    <div class="agent-item">
+                        <span>탐색형:</span> <span id="explorer-score">0</span>
+                    </div>
+                    <div class="agent-item">
+                        <span>기생형:</span> <span id="parasite-score">0</span>
+                    </div>
+                    <div class="agent-item">
+                        <span>공격형:</span> <span id="aggressive-score">0</span>
+                    </div>
+                </div>
+                
+                <div class="controls">
+                    <h3>🎮 제어</h3>
+                    <button id="start-btn" class="btn primary">시뮬레이션 시작</button>
+                    <button id="pause-btn" class="btn secondary">일시정지</button>
+                    <button id="reset-btn" class="btn danger">리셋</button>
+                    <button id="antibiotic-btn" class="btn special">항생제 투입</button>
+                    <div class="speed-control">
+                        <label for="speed-slider">속도:</label>
+                        <input type="range" id="speed-slider" min="1" max="10" value="5">
+                        <span id="speed-display">5x</span>
+                    </div>
+                </div>
+                
+                <div class="environment-panel">
+                    <h3>🌍 환경 설정</h3>
+                    <div class="env-item">
+                        <label>돌연변이 확률:</label>
+                        <input type="range" id="mutation-rate" min="0.001" max="0.05" step="0.001" value="0.005">
+                        <span id="mutation-display">0.5%</span>
+                    </div>
+                    <div class="env-item">
+                        <label>영양 레벨:</label>
+                        <input type="range" id="nutrition-level" min="0.1" max="2.0" step="0.1" value="1.0">
+                        <span id="nutrition-display">1.0x</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="simulation-container">
+                <canvas id="simulation-canvas" width="800" height="600"></canvas>
+                <div class="canvas-overlay">
+                    <div id="entity-info" class="entity-info hidden">
+                        <h4>엔티티 정보</h4>
+                        <div id="entity-details"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="chart-panel">
+                <h3>📈 진화 차트</h3>
+                <canvas id="evolution-chart" width="300" height="200"></canvas>
+                <div class="chart-legend">
+                    <div class="legend-item">
+                        <span class="legend-color bacteria"></span> 박테리아
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-color virus"></span> 바이러스
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-color host"></span> 숙주
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="tournament-panel">
+            <h3>🏆 토너먼트 결과</h3>
+            <div id="tournament-results">
+                <div class="tournament-item">
+                    <span>라운드 1:</span> <span>진행 중...</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/genome.js"></script>
+    <script src="js/entity.js"></script>
+    <script src="js/environment.js"></script>
+    <script src="js/agents.js"></script>
+    <script src="js/simulation.js"></script>
+    <script src="js/renderer.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
