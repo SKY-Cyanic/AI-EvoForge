@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://sky-cyanic.github.io/AI-EvoForge/sitemap.xml
